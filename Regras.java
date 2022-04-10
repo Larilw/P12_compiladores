@@ -50,10 +50,12 @@ public class Regras{
     }
     public class Regra{
         private String nome;
+        private Boolean isCompleta;
         private ArrayList<Resultado> resultado = new ArrayList<>();
 
         Regra(String nome){
             this.nome = nome;
+            this.isCompleta = false;
         }
 
         public String getNome(){
@@ -66,10 +68,6 @@ public class Regras{
 
         public void setNome(String nome){
             this.nome = nome;
-        }
-
-        public void addResultado(Resultado resultado){
-            this.resultado.add(resultado);
         }
 
         @Override
@@ -86,8 +84,9 @@ public class Regras{
             return result;
         }
 
-        public void addResultado(String nome, Boolean isTerminal, Token.TokenType token){
+        public void addResultado(String nome, Boolean isTerminal, Token.TokenType token, Boolean isCompleta){
             this.resultado.add(new Resultado(nome, isTerminal, token));
+            this.isCompleta = isCompleta;
         }
     }
 
@@ -115,13 +114,42 @@ public class Regras{
             return result;
         }
 
-    public void addResultado(String nomeRegra, String nomeResultado, Boolean isTerminal, Token.TokenType token){
+    public void addResultado(String nomeRegra, String nomeResultado, Boolean isTerminal, Token.TokenType token, Boolean isCompleta){
+        int i;
+        for(i = 0; i < this.regras.size(); i++){
+            if((this.regras.get(i).nome == nomeRegra) && !this.regras.get(i).isCompleta){
+                this.regras.get(i).addResultado(nomeResultado, isTerminal, token, isCompleta);
+            }
+        }
+    }
+
+    
+
+    public ArrayList<String> obterConjuntoPrimeiro(String nomeRegra){
+        ArrayList<String> conjuntoPrimeiro = new ArrayList<>();
         int i;
         for(i = 0; i < this.regras.size(); i++){
             if(this.regras.get(i).nome == nomeRegra){
-                this.regras.get(i).addResultado(nomeResultado, isTerminal, token);
+                //Pegando o primeiro simbolo do resultado da regra encontrada
+                Resultado res = this.regras.get(i).resultado.get(0);
+                if(res.isTerminal){
+                    if(!conjuntoPrimeiro.contains(res.token.toString())){
+                        conjuntoPrimeiro.add(res.token.toString());
+                    }
+                }
+                else{
+                    ArrayList<String> aux;
+                    aux = obterConjuntoPrimeiro(res.nome);
+                    int j;
+                    for(j = 0; j < aux.size(); j++){
+                        if(!conjuntoPrimeiro.contains(aux.get(j))){
+                            conjuntoPrimeiro.add(aux.get(j));
+                        }
+                    }
+                }
             }
         }
+        return conjuntoPrimeiro;
     }
 
 }
