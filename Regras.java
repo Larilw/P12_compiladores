@@ -85,6 +85,10 @@ public class Regras{
             }
             return result;
         }
+
+        public void addResultado(String nome, Boolean isTerminal, Token.TokenType token){
+            this.resultado.add(new Resultado(nome, isTerminal, token));
+        }
     }
 
     private ArrayList<Regra> regras = new ArrayList<>();
@@ -97,6 +101,10 @@ public class Regras{
         this.regras.add(regra);
     }
 
+    public void addRegra(String nomeRegra){
+        this.regras.add(new Regra(nomeRegra));
+    }
+
     @Override
         public String toString() {
             String result = "";
@@ -106,5 +114,14 @@ public class Regras{
             }
             return result;
         }
+
+    public void addResultado(String nomeRegra, String nomeResultado, Boolean isTerminal, Token.TokenType token){
+        int i;
+        for(i = 0; i < this.regras.size(); i++){
+            if(this.regras.get(i).nome == nomeRegra){
+                this.regras.get(i).addResultado(nomeResultado, isTerminal, token);
+            }
+        }
+    }
 
 }
