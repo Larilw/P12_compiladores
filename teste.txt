@@ -1,5 +1,9 @@
-#include <stdlib.h>
+if(a == 0)
+    return 0;
+}
+for(;;){
+    int a
+}
 int a
-float b;
- b;
+return ;
 
