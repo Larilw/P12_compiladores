@@ -10,7 +10,7 @@ public class Main {
     */
     public static void main(String[] args) {
         String arquivo = null;
-        TabelaSimbolos tabela = new TabelaSimbolos();
+        Integer i = 0;
         System.out.println("Digite o nome do arquivo:");
         Scanner entrada = new Scanner(System.in);
         arquivo = entrada.nextLine() + ".txt";
@@ -22,10 +22,12 @@ public class Main {
                 String source = " ";
                 while (s.hasNext()) {
                     source += s.nextLine() + "\n";
+                    i++;
                 }
+                TabelaSimbolos tabela = new TabelaSimbolos(i);
                 Lex l = new Lex(source, tabela);
                 l.printTokens();
-                //tabela.imprimir();
+                tabela.imprimir();
 
                 Parser p = new Parser();
                 p.criarRegras();

@@ -177,43 +177,4 @@ public class Regras{
         }
     }
     
-/*
-    public ArrayList<String> obterConjuntoPrimeiro(String nomeRegra, String nomePai, Integer pos){
-        ArrayList<String> conjuntoPrimeiro = new ArrayList<>();
-        int i;
-        for(i = 0; i < this.regras.size(); i++){
-            if(this.regras.get(i).nome == nomeRegra){
-                //Pegando o primeiro simbolo do resultado da regra encontrada
-                if(pos < this.regras.get(i).resultado.size()){
-                    Resultado res = this.regras.get(i).resultado.get(pos);
-                    if(res.isTerminal){ //achou um terminal
-                        System.out.println(res);
-                        System.out.println();
-                        if(res.token == Token.TokenType.Lambda && !res.getIsUltimo()){
-                            ArrayList<String> aux;
-                            aux = obterConjuntoPrimeiro(nomePai, nomePai, pos+1);
-                            System.out.println(aux);
-                        }
-                        else{
-                            if(!conjuntoPrimeiro.contains(res.token.toString())){
-                                conjuntoPrimeiro.add(res.token.toString());
-                            }
-                        }
-                    }
-                    else{ //achou um nao terminal
-                        ArrayList<String> aux;
-                        aux = obterConjuntoPrimeiro(res.nome, nomeRegra, 0);
-                        int j;
-                        for(j = 0; j < aux.size(); j++){
-                            if(!conjuntoPrimeiro.contains(aux.get(j))){
-                                conjuntoPrimeiro.add(aux.get(j));
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return conjuntoPrimeiro;
-    }
-*/
 }

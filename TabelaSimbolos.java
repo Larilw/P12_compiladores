@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 
+import javafx.scene.control.Tab;
+
 public class TabelaSimbolos {
     private ArrayList<Simbolo> tabela = new ArrayList<>();
+    private Integer qtdLinhasArq;
+
+    TabelaSimbolos(Integer qtdLinhasArq){
+        this.qtdLinhasArq = qtdLinhasArq;
+    }
 
     public void add(Simbolo simbolo){
         tabela.add(simbolo);
@@ -20,5 +27,9 @@ public class TabelaSimbolos {
 
     public Integer getTamanho(){
         return this.tabela.size();
+    }
+
+    public Integer getQtdLinhasArq(){
+        return this.qtdLinhasArq;
     }
 }

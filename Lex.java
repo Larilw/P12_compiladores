@@ -225,6 +225,8 @@ public class Lex {
             case '%': getNextChar(); t = new Token(Token.TokenType.Op_mod, "%", linha, pos); break;
             case ';': getNextChar(); t = new Token(Token.TokenType.Pontoevirgula, ";", linha, pos); break;
             case ',': getNextChar(); t = new Token(Token.TokenType.Virgula, ":", linha, pos); break;
+            case '#': getNextChar(); t = new Token(Token.TokenType.Cerquilha, "#", linha, pos); break;
+            case '.': getNextChar(); t = new Token(Token.TokenType.Ponto, ".", linha, pos); break;
             default: t = identificador_ou_inteiro(linha, pos); break;
         }
         if(t != null){

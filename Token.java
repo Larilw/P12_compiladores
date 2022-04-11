@@ -13,7 +13,7 @@ public class Token {
         Op_naoigual,       Op_atribuicao,       Op_and,         Op_or,         Palavrachave_if, Palavrachave_include,
         Palavrachave_else, Palavrachave_while,  Abparentese,    Fcparentese,   Abchave,         Fcchave,
         Pontoevirgula,     Virgula,             Identificador,  Inteiro,       String,          Tipodado,
-        Palavrachave_for,  Palavrachave_return, Lambda
+        Palavrachave_for,  Palavrachave_return, Lambda,         Cerquilha,     Ponto
     }
 
     private TokenType tipotoken;

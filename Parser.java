@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javafx.scene.control.Tab;
-
 public class Parser {
     Regras regras = new Regras();
     ArrayList<String> tokensSincronizacao = new ArrayList<>();
@@ -22,44 +20,54 @@ public class Parser {
         this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Identificador, false);
         this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Pontoevirgula, true);
         
-
         this.regras.addRegra("DECLARACAO");
         this.regras.addResultado("DECLARACAO", "A", false, null, true);
         this.regras.addConjuntoPrimeiro("DECLARACAO", new String[]{"Tipodado"});
+
+        this.regras.addRegra("INCLUDE");
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Cerquilha, false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Palavrachave_include, false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Op_menor, false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Identificador, false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Ponto, false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Identificador, false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Op_maior, true);
+        this.regras.addConjuntoPrimeiro("INCLUDE", new String[]{"Cerquilha"});
+
+
     }
 
-    public int declaracao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
-        if(elemento.getTipoToken().toString().equals(Token.TokenType.Tipodado.toString())){
-            i++;
-            if(tabela.getTamanho() > i){
-                Simbolo proximo = tabela.obterSimbolo(i);
-                if(proximo.getTipoToken().toString().equals(Token.TokenType.Identificador.toString())){
-                    i++;
-                    if(tabela.getTamanho() > i){
-                        proximo = tabela.obterSimbolo(i);
-                        if(proximo.getTipoToken().toString().equals(Token.TokenType.Pontoevirgula.toString())){
-                            i++;
-                            return i;
-                        }
-                        else{
-                            throw new Exception(String.format("ERRO DE SINTAXE: DECLARACAO SEM PONTO E VIRGULA, linha %d\n", proximo.getLinha()));
-                        }
-                    }
-                    else{
-                        throw new Exception(String.format("ERRO DE SINTAXE: DECLARACAO SEM PONTO E VIRGULA, linha %d\n", proximo.getLinha()));
-                    }
-                }
-                else{
-                    throw new Exception(String.format("ERRO DE SINTAXE: TIPO DE DADO SEM IDENTIFICADOR, linha %d\n", proximo.getLinha()));
-                }
+    private int verificarToken(int i, TabelaSimbolos tabela, Token.TokenType token, String excessao, int linhaAtual) throws Exception{
+        if(i < tabela.getTamanho()){
+            Simbolo proximo = tabela.obterSimbolo(i);
+            if(proximo.getTipoToken().toString().equals(token.toString())){
+                return i+1;
             }
             else{
-                throw new Exception(String.format("ERRO DE SINTAXE: TIPO DE DADO SEM IDENTIFICADOR, linha %d\n", elemento.getLinha()));
+                throw new Exception(String.format("ERRO DE SINTAXE: %s, linha %d\n", excessao, proximo.getLinha()));
             }
         }
         else{
-            throw new Exception(String.format("ERRO DE SINTAXE NAO IDENTIFICADO, linha %d\n", elemento.getLinha()));
+            throw new Exception(String.format("ERRO DE SINTAXE: %s, linha %d\n", excessao, linhaAtual));
         }
+    }
+
+    public int include(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
+        i = verificarToken(i, tabela, Token.TokenType.Cerquilha, "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Palavrachave_include, "CERQUILHA SEM INCLUDE", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Op_menor, "INCLUDE SEM SIMBOLO MENOR", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Identificador, "INCLUDE SEM IDENTIFICADOR", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Ponto, "INCLUDE SEM PONTO", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Identificador, "INCLUDE SEM IDENTIFICADOR APOS O PONTO", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Op_maior, "INCLUDE SEM SIMBOLO MAIOR", tabela.getQtdLinhasArq());
+        return i;
+    }
+
+    public int declaracao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
+        i = verificarToken(i, tabela, Token.TokenType.Tipodado, "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Identificador, "TIPO DE DADO SEM IDENTIFICADOR", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Pontoevirgula, "TIPO DE DADO SEM PONTO E VIRGULA", tabela.getQtdLinhasArq());
+        return i;
     }
 
     public void asd(TabelaSimbolos tabela){
@@ -95,6 +103,7 @@ public class Parser {
                             //e.printStackTrace();
                         }
                     }
+                    break;
                 }
                 else{
                     System.out.println(String.format("ERRO DE SINTAXE: CONTEUDO FORA DA GRAMATICA, linha %d\n", elemento.getLinha()));
@@ -113,6 +122,7 @@ public class Parser {
                     else{
                         //e.printStackTrace();
                     }
+                    break;
                 }
             }
         }
