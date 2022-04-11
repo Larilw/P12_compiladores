@@ -9,7 +9,6 @@ public class Parser {
         this.tokensSincronizacao.add(Token.TokenType.Palavrachave_for.toString());
         this.tokensSincronizacao.add(Token.TokenType.Palavrachave_while.toString());
         this.tokensSincronizacao.add(Token.TokenType.Palavrachave_if.toString());
-        this.tokensSincronizacao.add(Token.TokenType.Palavrachave_include.toString());
         this.tokensSincronizacao.add(Token.TokenType.Tipodado.toString());
     }
 
@@ -83,7 +82,12 @@ public class Parser {
                         if(regra.equals("DECLARACAO")){
                             i = declaracao(elemento, i, tabela);
                         }
-
+                        else if(regra.equals("INCLUDE")){
+                            i = include(elemento, i, tabela);
+                        }
+    
+                        break;
+                        
                     }
                     catch(Exception e){
                         sucesso = false;
@@ -98,33 +102,39 @@ public class Parser {
                                     break;
                                 }
                             }
+                            break;
+                        }
+                        else{
+                            break;
+                        }
+                    }
+                }
+                else{
+                    if(j == conjuntosPrimeiro.size()-1){
+                        System.out.println(String.format("ERRO DE SINTAXE: CONTEUDO FORA DA GRAMATICA, linha %d\n", elemento.getLinha()));
+                        sucesso = false;
+                        if(++i < tabela.getTamanho()){
+                            elemento = tabela.obterSimbolo(i);
+                            while(!this.tokensSincronizacao.contains(elemento.getTipoToken().toString())){
+                                if(++i < tabela.getTamanho()){
+                                    elemento = tabela.obterSimbolo(i);
+                                }
+                                else{
+                                    break;
+                                }
+                            }
                         }
                         else{
                             //e.printStackTrace();
+                            break;
                         }
-                    }
-                    break;
-                }
-                else{
-                    System.out.println(String.format("ERRO DE SINTAXE: CONTEUDO FORA DA GRAMATICA, linha %d\n", elemento.getLinha()));
-                    sucesso = false;
-                    if(++i < tabela.getTamanho()){
-                        elemento = tabela.obterSimbolo(i);
-                        while(!this.tokensSincronizacao.contains(elemento.getTipoToken().toString())){
-                            if(++i < tabela.getTamanho()){
-                                elemento = tabela.obterSimbolo(i);
-                            }
-                            else{
-                                break;
-                            }
-                        }
-                    }
-                    else{
-                        //e.printStackTrace();
-                    }
-                    break;
+                    }  
                 }
             }
+            /*
+            if(!sucess){
+                
+            }*/
         }
         if(sucesso){
             System.out.println("ANALISE SINTATICA REALIZADA COM SUCESSO\n");

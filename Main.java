@@ -27,7 +27,7 @@ public class Main {
                 TabelaSimbolos tabela = new TabelaSimbolos(i);
                 Lex l = new Lex(source, tabela);
                 l.printTokens();
-                tabela.imprimir();
+                //tabela.imprimir();
 
                 Parser p = new Parser();
                 p.criarRegras();
@@ -36,6 +36,7 @@ public class Main {
                 Lex.error(-1, -1, "Exception: " + e.getMessage());
             } catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
     }  

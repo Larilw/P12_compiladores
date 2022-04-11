@@ -1,4 +1,5 @@
- a;
-float ;
-char a;
+#include <stdlib.>
+int a
+float b;
  b;
+
