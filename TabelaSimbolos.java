@@ -13,4 +13,12 @@ public class TabelaSimbolos {
             System.out.println(tabela.get(i));
         }
     }
+
+    public Simbolo obterSimbolo(Integer pos){
+        return this.tabela.get(pos);
+    }
+
+    public Integer getTamanho(){
+        return this.tabela.size();
+    }
 }

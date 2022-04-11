@@ -25,15 +25,17 @@ public class Main {
                 }
                 Lex l = new Lex(source, tabela);
                 l.printTokens();
-                tabela.imprimir();
+                //tabela.imprimir();
+
+                Parser p = new Parser();
+                p.criarRegras();
+                p.asd(tabela);
             } catch(FileNotFoundException e) {
                 Lex.error(-1, -1, "Exception: " + e.getMessage());
+            } catch(Exception e){
+                System.out.println(e);
             }
         }
-        /*
-        Parser p = new Parser();
-        p.criarRegras();
-        */
     }  
 
 }

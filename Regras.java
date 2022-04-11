@@ -103,6 +103,10 @@ public class Regras{
             return this.conjuntoPrimeiro;
         }
 
+        public String getNomeRegra(){
+            return this.nomeRegra;
+        }
+
         public void addPrimeiro(String[] primeiro){
             int i;
             for(i = 0; i < primeiro.length; i++){
@@ -134,6 +138,10 @@ public class Regras{
             }
         }
         return null;
+    }
+
+    public ArrayList<Primeiro> getConjuntosPrimeiro(){
+        return this.conjuntosPrimeiro;
     }
 
     public void addConjuntoPrimeiro(String nomeRegra, String[] primeiro){
