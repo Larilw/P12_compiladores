@@ -134,7 +134,7 @@ public class Lex {
     */
     Token div_ou_comment(int linha, int pos) {
         if (getNextChar() != '*') {
-            return new Token(Token.TokenType.Op_divisao, "/", linha, pos);
+            return new Token(Token.TokenType.Operador, "/", linha, pos);
         }
         getNextChar();
         while (true) { 
@@ -208,21 +208,21 @@ public class Lex {
             case '\u0000': return new Token(Token.TokenType.Finaldaentrada, "", this.linha, this.pos);
             case '/': t = div_ou_comment(linha, pos); break;
             case '\'': t = leitura_char(linha, pos); break;
-            case '<': t = compara_caractere('=', Token.TokenType.Op_menorigual, Token.TokenType.Op_menor, linha, pos, '<'); break;
-            case '>': t = compara_caractere('=', Token.TokenType.Op_maiorigual, Token.TokenType.Op_maior, linha, pos, '>'); break;
-            case '=': t = compara_caractere('=', Token.TokenType.Op_igual, Token.TokenType.Op_atribuicao, linha, pos, '='); break;
-            case '!': t = compara_caractere('=', Token.TokenType.Op_naoigual, Token.TokenType.Op_not, linha, pos, '!'); break;
-            case '&': t = compara_caractere('&', Token.TokenType.Op_and, Token.TokenType.Finaldaentrada, linha, pos, '&'); break;
-            case '|': t = compara_caractere('|', Token.TokenType.Op_or, Token.TokenType.Finaldaentrada, linha, pos, '|'); break;
+            case '<': t = compara_caractere('=', Token.TokenType.Operador, Token.TokenType.Operador, linha, pos, '<'); break;
+            case '>': t = compara_caractere('=', Token.TokenType.Operador, Token.TokenType.Operador, linha, pos, '>'); break;
+            case '=': t = compara_caractere('=', Token.TokenType.Operador, Token.TokenType.Operador, linha, pos, '='); break;
+            case '!': t = compara_caractere('=', Token.TokenType.Operador, Token.TokenType.Operador, linha, pos, '!'); break;
+            case '&': t = compara_caractere('&', Token.TokenType.Operador, Token.TokenType.Finaldaentrada, linha, pos, '&'); break;
+            case '|': t = compara_caractere('|', Token.TokenType.Operador, Token.TokenType.Finaldaentrada, linha, pos, '|'); break;
             case '"': t = leitura_string(this.chr, linha, pos); break;
             case '{': getNextChar(); t = new Token(Token.TokenType.Abchave, "{", linha, pos); break;
             case '}': getNextChar(); t = new Token(Token.TokenType.Fcchave, "}", linha, pos); break;
             case '(': getNextChar(); t = new Token(Token.TokenType.Abparentese, "(", linha, pos); break;
             case ')': getNextChar(); t = new Token(Token.TokenType.Fcparentese, ")", linha, pos); break;
-            case '+': getNextChar(); t = new Token(Token.TokenType.Op_soma, "+", linha, pos); break;
-            case '-': getNextChar(); t = new Token(Token.TokenType.Op_subtracao, "-", linha, pos); break;
-            case '*': getNextChar(); t = new Token(Token.TokenType.Op_multiplicacao, "*", linha, pos); break;
-            case '%': getNextChar(); t = new Token(Token.TokenType.Op_mod, "%", linha, pos); break;
+            case '+': getNextChar(); t = new Token(Token.TokenType.Operador, "+", linha, pos); break;
+            case '-': getNextChar(); t = new Token(Token.TokenType.Operador, "-", linha, pos); break;
+            case '*': getNextChar(); t = new Token(Token.TokenType.Operador, "*", linha, pos); break;
+            case '%': getNextChar(); t = new Token(Token.TokenType.Operador, "%", linha, pos); break;
             case ';': getNextChar(); t = new Token(Token.TokenType.Pontoevirgula, ";", linha, pos); break;
             case ',': getNextChar(); t = new Token(Token.TokenType.Virgula, ":", linha, pos); break;
             case '#': getNextChar(); t = new Token(Token.TokenType.Cerquilha, "#", linha, pos); break;

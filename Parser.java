@@ -15,24 +15,23 @@ public class Parser {
     public void criarRegras(){
         
         this.regras.addRegra("DECLARACAO");
-        this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Tipodado, false);
-        this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Identificador, false);
-        this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Pontoevirgula, true);
+        this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Tipodado.toString(), false);
+        this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Identificador.toString(), false);
+        this.regras.addResultado("DECLARACAO", "", true, Token.TokenType.Pontoevirgula.toString(), true);
         
         this.regras.addRegra("DECLARACAO");
         this.regras.addResultado("DECLARACAO", "A", false, null, true);
         this.regras.addConjuntoPrimeiro("DECLARACAO", new String[]{"Tipodado"});
 
         this.regras.addRegra("INCLUDE");
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Cerquilha, false);
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Palavrachave_include, false);
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Op_menor, false);
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Identificador, false);
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Ponto, false);
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Identificador, false);
-        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Op_maior, true);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Cerquilha.toString(), false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Palavrachave_include.toString(), false);
+        this.regras.addResultado("INCLUDE", "", true, "<", false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Identificador.toString(), false);
+        this.regras.addResultado("INCLUDE", "", true, Token.TokenType.Ponto.toString(), false);
+        this.regras.addResultado("INCLUDE", "", true, "h", false);
+        this.regras.addResultado("INCLUDE", "", true, ">", true);
         this.regras.addConjuntoPrimeiro("INCLUDE", new String[]{"Cerquilha"});
-
 
     }
 
@@ -51,14 +50,19 @@ public class Parser {
         }
     }
 
+    public int expressao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
+        i = verificarToken(i, tabela, Token.TokenType.Cerquilha, "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
+        return i;
+    }
+
     public int include(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         i = verificarToken(i, tabela, Token.TokenType.Cerquilha, "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, Token.TokenType.Palavrachave_include, "CERQUILHA SEM INCLUDE", tabela.getQtdLinhasArq());
-        i = verificarToken(i, tabela, Token.TokenType.Op_menor, "INCLUDE SEM SIMBOLO MENOR", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Operador, "INCLUDE SEM SIMBOLO MENOR", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, Token.TokenType.Identificador, "INCLUDE SEM IDENTIFICADOR", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, Token.TokenType.Ponto, "INCLUDE SEM PONTO", tabela.getQtdLinhasArq());
-        i = verificarToken(i, tabela, Token.TokenType.Identificador, "INCLUDE SEM IDENTIFICADOR APOS O PONTO", tabela.getQtdLinhasArq());
-        i = verificarToken(i, tabela, Token.TokenType.Op_maior, "INCLUDE SEM SIMBOLO MAIOR", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Identificador, "INCLUDE SEM H APOS O PONTO", tabela.getQtdLinhasArq());
+        i = verificarToken(i, tabela, Token.TokenType.Operador, "INCLUDE SEM SIMBOLO MAIOR", tabela.getQtdLinhasArq());
         return i;
     }
 

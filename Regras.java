@@ -5,9 +5,9 @@ public class Regras{
     public class Resultado{
         private String nome;
         private Boolean isTerminal;
-        private Token.TokenType token;
+        private String token;
 
-        Resultado(String nome, Boolean isTerminal, Token.TokenType token){
+        Resultado(String nome, Boolean isTerminal, String token){
             this.nome = nome;
             this.isTerminal = isTerminal;
             this.token = token;
@@ -20,7 +20,7 @@ public class Regras{
             return this.isTerminal;
         }
 
-        public Token.TokenType getToken(){
+        public String getToken(){
             return this.token;
         }
 
@@ -32,7 +32,7 @@ public class Regras{
             this.isTerminal = isTerminal;
         }
 
-        public void setToken(Token.TokenType token){
+        public void setToken(String token){
             this.token = token;
         }
 
@@ -84,7 +84,7 @@ public class Regras{
             return result;
         }
 
-        public void addResultado(String nome, Boolean isTerminal, Token.TokenType token, Boolean isCompleta){
+        public void addResultado(String nome, Boolean isTerminal, String token, Boolean isCompleta){
             this.resultado.add(new Resultado(nome, isTerminal, token));
             this.isCompleta = isCompleta;
         }
@@ -168,7 +168,7 @@ public class Regras{
             return result;
         }
 
-    public void addResultado(String nomeRegra, String nomeResultado, Boolean isTerminal, Token.TokenType token, Boolean isCompleta){
+    public void addResultado(String nomeRegra, String nomeResultado, Boolean isTerminal, String token, Boolean isCompleta){
         int i;
         for(i = 0; i < this.regras.size(); i++){
             if((this.regras.get(i).nome == nomeRegra) && !this.regras.get(i).isCompleta){
