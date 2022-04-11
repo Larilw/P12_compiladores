@@ -1,6 +1,6 @@
 /* Exemplo de comentario */
 
-int main(){
+float main(){
     int x;
     x = 3;
     'x' = aaa;

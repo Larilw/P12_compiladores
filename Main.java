@@ -9,7 +9,6 @@ public class Main {
     Retorno: Nenhum
     */
     public static void main(String[] args) {
-        /*
         String arquivo = null;
         TabelaSimbolos tabela = new TabelaSimbolos();
         System.out.println("Digite o nome do arquivo:");
@@ -30,9 +29,11 @@ public class Main {
             } catch(FileNotFoundException e) {
                 Lex.error(-1, -1, "Exception: " + e.getMessage());
             }
-        }*/
+        }
+        /*
         Parser p = new Parser();
         p.criarRegras();
+        */
     }  
 
 }

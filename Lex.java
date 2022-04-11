@@ -143,7 +143,7 @@ public class Lex {
             } else if (this.chr == '*') {
                 if (getNextChar() == '/') {
                     getNextChar();
-                    return getToken();
+                    return null;
                 }
             } else {
                 getNextChar();
@@ -204,12 +204,9 @@ public class Lex {
         linha = this.linha;
         pos = this.pos;
 
-        simbolo.setColuna(pos);
-        simbolo.setLinha(linha);
-
         switch (this.chr) {
             case '\u0000': return new Token(Token.TokenType.Finaldaentrada, "", this.linha, this.pos);
-            case '/': t = div_ou_comment(linha, pos);break;
+            case '/': t = div_ou_comment(linha, pos); break;
             case '\'': t = leitura_char(linha, pos); break;
             case '<': t = compara_caractere('=', Token.TokenType.Op_menorigual, Token.TokenType.Op_menor, linha, pos, '<'); break;
             case '>': t = compara_caractere('=', Token.TokenType.Op_maiorigual, Token.TokenType.Op_maior, linha, pos, '>'); break;
@@ -230,9 +227,13 @@ public class Lex {
             case ',': getNextChar(); t = new Token(Token.TokenType.Virgula, ":", linha, pos); break;
             default: t = identificador_ou_inteiro(linha, pos); break;
         }
-        simbolo.setTipoToken(t.getTipoToken());
-        simbolo.setToken(t.getValor());
-        this.tabela.add(simbolo);
+        if(t != null){
+            simbolo.setColuna(pos);
+            simbolo.setLinha(linha);
+            simbolo.setTipoToken(t.getTipoToken());
+            simbolo.setToken(t.getValor());
+            this.tabela.add(simbolo);
+        }
         return t;
     }
  
@@ -263,10 +264,16 @@ public class Lex {
     */
     void printTokens() {
         Token t;
-        while ((t = getToken()).getTipoToken() != Token.TokenType.Finaldaentrada) {
-            //System.out.println(t);
+        t = getToken();
+        while(t == null){
+            t = getToken();
         }
-        //System.out.println(t);
+        while (t.getTipoToken() != Token.TokenType.Finaldaentrada) {
+            t = getToken();
+            while(t == null){
+                t = getToken();
+            }
+        }
     }
 
 }
