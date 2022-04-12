@@ -1,12 +1,18 @@
 import java.util.ArrayList;
-
+/*
+Descricao: Classe que representa as regras
+*/
 public class Regras{
 
+    /*
+    Descricao: Classe que representa um resultado, que eh a derivacao das regras
+    */
     public class Resultado{
         private String nome;
         private Boolean isTerminal;
         private String token;
 
+        //Construtor, getters e setters da classe Resultado
         Resultado(String nome, Boolean isTerminal, String token){
             this.nome = nome;
             this.isTerminal = isTerminal;
@@ -48,11 +54,15 @@ public class Regras{
             return result;
         }
     }
+    /*
+    Descricao: Classe que representa uma regra 
+    */
     public class Regra{
         private String nome;
         private Boolean isCompleta;
         private ArrayList<Resultado> resultado = new ArrayList<>();
 
+        //Construtor, getters e setters da classe regra
         Regra(String nome){
             this.nome = nome;
             this.isCompleta = false;
@@ -90,11 +100,14 @@ public class Regras{
         }
 
     }
-
+        /*
+        Descricao: Classe que representa o conjunto primeiro
+        */
     public class Primeiro{
         private String nomeRegra;
         private ArrayList<String> conjuntoPrimeiro = new ArrayList<>();
 
+        //Construtor, getters e setters da classe primeiro
         Primeiro(String nomeRegra){
             this.nomeRegra = nomeRegra;
         }
@@ -115,6 +128,7 @@ public class Regras{
         }
     }
 
+    //getters e setters da classe Regras
     private ArrayList<Regra> regras = new ArrayList<>();
     private ArrayList<Primeiro> conjuntosPrimeiro = new ArrayList<>();
 

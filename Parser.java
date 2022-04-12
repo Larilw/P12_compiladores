@@ -13,7 +13,11 @@ public class Parser {
         this.tokensSincronizacao.add(Token.TokenType.Tipodado.toString());
         this.tokensSincronizacao.add(Token.TokenType.Palavrachave_return.toString());
     }
-
+    /*
+    Descricao: Função que realiza a criacao das regras da gramatica
+    Entrada: Nenhuma
+    Retorno: Nenhum
+    */
     public void criarRegras(){
         
         this.regras.addRegra("DECLARACAO");
@@ -186,6 +190,11 @@ public class Parser {
 
     }
 
+    /*
+    Descricao: Função que realiza a checagem de um token em uma regra e realiza a excessao se nao estiver presente
+    Entrada: Posicao na tabela de simbolos, tabela de simbolos, token a ser verificado, mensagem para a excessao e linha atual
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     private int verificarToken(int i, TabelaSimbolos tabela, String token, String excessao, int linhaAtual) throws Exception{
         if(i < tabela.getTamanho()){
             Simbolo proximo = tabela.obterSimbolo(i);
@@ -201,7 +210,11 @@ public class Parser {
         }
     }
 
-
+  /*
+    Descricao: Função que realiza a regra default
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regradefault(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("DEFAULT", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Doispontos", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -210,6 +223,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra case
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regracase(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("CASE", tabela.getTabela(), i);
         if(elemento.getTipoToken().toString().equals("Palavrachave_case")){
@@ -236,6 +254,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra switch
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regraswitch(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("SWITCH", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Palavrachave_switch", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -250,17 +273,26 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra de atribuicao
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int atribuicao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("ATRIBUICAO", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "=", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
         elemento = tabela.obterSimbolo(i);
-        i = expressao(elemento, i, tabela);
+        i = regraIdentificacao(elemento, i, tabela);
         elemento = tabela.obterSimbolo(i);
         i = verificarToken(i, tabela, ";", "ATRIBUICAO SEM PONTO E VIRGULA", tabela.getQtdLinhasArq());
         return i;
     }
 
-
+    /*
+    Descricao: Função que realiza a regra b
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int b(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("B", tabela.getTabela(), i);
         elemento = tabela.obterSimbolo(i);
@@ -273,6 +305,11 @@ public class Parser {
         return i;
     }
 
+     /*
+    Descricao: Função que realiza a regra identificacao
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regraIdentificacao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("IDENTIFICACAO", tabela.getTabela(), i);
         elemento = tabela.obterSimbolo(i);
@@ -287,20 +324,25 @@ public class Parser {
         return i;
     }
 
+     /*
+    Descricao: Função que realiza a regra for
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regraFor(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("FOR", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Palavrachave_for", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, "Abparentese", "FOR SEM ABERTURA DE PARENTESES", tabela.getQtdLinhasArq());
         elemento = tabela.obterSimbolo(i);
-        i = expressao(elemento, i, tabela);
+        i = regraIdentificacao(elemento, i, tabela);
         elemento = tabela.obterSimbolo(i);
         i = verificarToken(i, tabela, "Pontoevirgula", "FOR SEM PONTO E VIRGULA", tabela.getQtdLinhasArq());
         elemento = tabela.obterSimbolo(i);
-        i = expressao(elemento, i, tabela);
+        i = regraIdentificacao(elemento, i, tabela);
         elemento = tabela.obterSimbolo(i);
         i = verificarToken(i, tabela, "Pontoevirgula", "FOR SEM PONTO E VIRGULA", tabela.getQtdLinhasArq());
         elemento = tabela.obterSimbolo(i);
-        i = expressao(elemento, i, tabela);
+        i = regraIdentificacao(elemento, i, tabela);
         elemento = tabela.obterSimbolo(i);
         i = verificarToken(i, tabela, "Fcparentese", "FOR SEM FECHAMENTO DE PARENTESES", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, "Abchave", "FOR SEM ABERTURA DE CHAVES", tabela.getQtdLinhasArq());
@@ -311,12 +353,17 @@ public class Parser {
         return i;
     }
 
+     /*
+    Descricao: Função que realiza a regra while
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regraWhile(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("WHILE", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Palavrachave_while", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, "Abparentese", "WHILE SEM ABERTURA DE PARENTESES", tabela.getQtdLinhasArq());
         elemento = tabela.obterSimbolo(i);
-        i = expressao(elemento, i, tabela);
+        i = regraIdentificacao(elemento, i, tabela);
         elemento = tabela.obterSimbolo(i);
         i = verificarToken(i, tabela, "Fcparentese", "WHILE SEM FECHAMENTO DE PARENTESES", tabela.getQtdLinhasArq());
         i = verificarToken(i, tabela, "Abchave", "WHILE SEM ABERTURA DE CHAVES", tabela.getQtdLinhasArq());
@@ -327,6 +374,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra else
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regraElse(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("ELSE", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Palavrachave_else", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -337,7 +389,12 @@ public class Parser {
         i = verificarToken(i, tabela, "Fcchave", "ELSE SEM FECHAMENTO DE CHAVES", tabela.getQtdLinhasArq());
         return i;
     }
-
+    
+   /*
+    Descricao: Função que realiza a regra if
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int regraIf(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("IF", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Palavrachave_if", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -354,6 +411,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra bloco
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int bloco(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("BLOCO", tabela.getTabela(), i);
         elemento = tabela.obterSimbolo(i);
@@ -390,6 +452,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra retorno
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int retorno(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("RETORNO", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Palavrachave_return", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -400,6 +467,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra termoint
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int termoint(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("TERMO INTEIRO", tabela.getTabela(), i);
         if(elemento.getTipoToken().toString().equals("Inteiro")){
@@ -412,6 +484,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra termoid
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int termoid(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("TERMO IDENTIFICADOR", tabela.getTabela(), i);
         if(elemento.getTipoToken().toString().equals("Identificador")){
@@ -423,6 +500,11 @@ public class Parser {
         return i;
     }    
 
+    /*
+    Descricao: Função que realiza a regra a
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int a(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("A", tabela.getTabela(), i);
         if(elemento.getTipoToken().toString().equals("Operador")){
@@ -439,12 +521,22 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra expressao
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int expressao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("EXPRESSAO", tabela.getTabela(), i);
         i = a(elemento, i, tabela);
         return i;
     }
 
+    /*
+    Descricao: Função que realiza a regra include
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int include(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("INCLUDE", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Cerquilha", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -457,6 +549,12 @@ public class Parser {
         return i;
     }
 
+    
+    /*
+    Descricao: Função que realiza a regra declaracao
+    Entrada: Elemento da tabela, posicao na tabela e tabela de simbolos
+    Retorno: Retorna o inteiro com a nova posicao na tabela
+    */
     public int declaracao(Simbolo elemento, int i, TabelaSimbolos tabela) throws Exception{
         this.arvore.escreverPasso("DECLARACAO", tabela.getTabela(), i);
         i = verificarToken(i, tabela, "Tipodado", "NAO IDENTIFICADO", tabela.getQtdLinhasArq());
@@ -465,6 +563,11 @@ public class Parser {
         return i;
     }
 
+    /*
+    Descricao: Funcao que chama a regra bloco e realiza o tratamento de erro com o modo panico
+    Entrada: Tabela de simbolos
+    Retorno: Nenhum
+    */
     public void asd(TabelaSimbolos tabela){
         this.arvore.escreverPasso("INICIO DO PROCESSAMENTO", tabela.getTabela(), 0);
         int i;

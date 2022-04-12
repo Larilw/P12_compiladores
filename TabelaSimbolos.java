@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 
+/*
+Descricao: Classe que representa uma tabela de simbolos 
+*/
 public class TabelaSimbolos {
     private ArrayList<Simbolo> tabela = new ArrayList<>();
     private Integer qtdLinhasArq;
 
+    //Construtor, getters e setters da tabela de simbolos juntamente com metodo para impressao da tabela
     TabelaSimbolos(Integer qtdLinhasArq){
         this.qtdLinhasArq = qtdLinhasArq;
     }

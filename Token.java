@@ -18,6 +18,7 @@ public class Token {
     private Integer linha;
     private Integer coluna;
 
+    //Construtor, getters e setters da classe Token
     Token(TokenType token, String valor, int linha, int coluna) {
         this.tipotoken = token; this.valor = valor; this.linha = linha; this.coluna = coluna;
     }

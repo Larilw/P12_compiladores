@@ -1,9 +1,13 @@
+/*
+Descricao: Classe que representa um Simbolo 
+*/
 public class Simbolo {
     private Token.TokenType tipoToken;
     private String token;
     private Integer posLinha;
     private Integer posColuna;
 
+    //Construtor, getters e setters da classe Simbolo
     public Token.TokenType getTipoToken(){
         return this.tipoToken;
     }

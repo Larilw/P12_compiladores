@@ -1,0 +1,40 @@
+<BLOCO> ::= IF | ELSE | INCLUDE | RETURN | DECLARACAO | FOR | WHILE | IDENTIFICACAO | SWITCH
+
+<IF> ::=  Palavrachave_if ( IDENTIFICACAO ) { BLOCO }
+
+<ELSE> ::= Palavrachave_else { BLOCO }
+
+<INCLUDE> ::= # Palavrachave_include < Identificador . h >
+
+<RETURN> ::= Palavrachave_return IDENTIFICACAO ;
+
+<DECLARACAO> ::= Tipodado Identificador ;
+
+<FOR> ::= Palavrachave_for ( IDENTIFICACAO ; IDENTIFICACAO ; IDENTIFICACAO ){ BLOCO }
+
+<WHILE> ::= Palavrachave_while ( IDENTIFICACAO ) { BLOCO }
+
+<IDENTIFICACAO> ::= TERMOID B | TERMOINT A;
+
+<SWITCH> ::= Palavrachave_switch ( Identificador ){ CASE }
+
+<CASE> ::= Palavrachave_case IDENTIFICACAO : BLOCO Palavrachave_break ; CASE
+
+<CASE> ::= Palavrachave_default IDENTIFICACAO DEFAULT
+
+<DEFAULT> ::= : BLOCO
+
+<A> ::= Operador TERMOID
+
+<A> ::= Operador TERMOINT
+
+<A> ::= "Lambda/vazio"
+
+<TERMOID> ::= Identificador
+
+<TERMOINT> ::= Inteiro
+
+<B> ::= EXPRESSAO
+ 
+<B> ::= ATRIBUICAO
+
