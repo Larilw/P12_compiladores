@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javafx.geometry.HorizontalDirection;
-
 public class Parser {
     Regras regras = new Regras();
     ArrayList<String> tokensSincronizacao = new ArrayList<>();

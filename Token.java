@@ -1,5 +1,3 @@
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 /*
 Descricao: Classe que representa um token 
 */

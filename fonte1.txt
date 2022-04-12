@@ -3,8 +3,6 @@
 float main(){
     int x;
     x = 3;
-    'x' = aaa;
-    'b'
     while(x <= 10){
         print("X ainda nao e 10");
     }

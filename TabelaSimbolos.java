@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javafx.scene.control.Tab;
-
 public class TabelaSimbolos {
     private ArrayList<Simbolo> tabela = new ArrayList<>();
     private Integer qtdLinhasArq;
