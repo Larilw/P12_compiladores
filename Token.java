@@ -8,10 +8,11 @@ public class Token {
     Descricao: Enum que lista todas as classes de token aceitas
     */
     static enum TokenType {
-        Finaldaentrada,    Palavrachave_if, Palavrachave_include, Operador, 
+        Finaldaentrada,    Palavrachave_if, Palavrachave_include, Operador,  Palavrachave_switch, Palavrachave_case,
         Palavrachave_else, Palavrachave_while,  Abparentese,    Fcparentese,   Abchave,         Fcchave,
         Pontoevirgula,     Virgula,             Identificador,  Inteiro,       String,          Tipodado,
-        Palavrachave_for,  Palavrachave_return, Lambda,         Cerquilha,     Ponto
+        Palavrachave_for,  Palavrachave_return, Lambda,         Cerquilha,     Ponto, Doispontos, Palavrachave_break,
+        Palavrachave_default
     }
 
     private TokenType tipotoken;

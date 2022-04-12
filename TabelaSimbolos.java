@@ -32,4 +32,8 @@ public class TabelaSimbolos {
     public Integer getQtdLinhasArq(){
         return this.qtdLinhasArq;
     }
+
+    public ArrayList<Simbolo> getTabela(){
+        return this.tabela;
+    }
 }

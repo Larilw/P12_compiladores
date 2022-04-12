@@ -1,8 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner; 
+ 
 
 /*
 Descricao: Classe que realiza a análise léxica de um arquivo
@@ -47,6 +45,10 @@ public class Lex {
         this.keywords.put("for", Token.TokenType.Palavrachave_for);
         this.keywords.put("return", Token.TokenType.Palavrachave_return);
         this.keywords.put("include", Token.TokenType.Palavrachave_include);
+        this.keywords.put("switch", Token.TokenType.Palavrachave_switch);
+        this.keywords.put("case", Token.TokenType.Palavrachave_case);
+        this.keywords.put("break", Token.TokenType.Palavrachave_break);
+        this.keywords.put("default", Token.TokenType.Palavrachave_default);
         this.keywords.put("int", Token.TokenType.Tipodado);
         this.keywords.put("float", Token.TokenType.Tipodado);
         this.keywords.put("char", Token.TokenType.Tipodado);
@@ -224,6 +226,7 @@ public class Lex {
             case '*': getNextChar(); t = new Token(Token.TokenType.Operador, "*", linha, pos); break;
             case '%': getNextChar(); t = new Token(Token.TokenType.Operador, "%", linha, pos); break;
             case ';': getNextChar(); t = new Token(Token.TokenType.Pontoevirgula, ";", linha, pos); break;
+            case ':': getNextChar(); t = new Token(Token.TokenType.Doispontos, ":", linha, pos); break;
             case ',': getNextChar(); t = new Token(Token.TokenType.Virgula, ":", linha, pos); break;
             case '#': getNextChar(); t = new Token(Token.TokenType.Cerquilha, "#", linha, pos); break;
             case '.': getNextChar(); t = new Token(Token.TokenType.Ponto, ".", linha, pos); break;

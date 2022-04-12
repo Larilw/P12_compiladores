@@ -1,0 +1,620 @@
+Regra: INICIO DO PROCESSAMENTO
+Cadeia de entrada:
+    1      1 Palavrachave_if  if
+    1      3 Abparentese      (
+    1      4 Identificador    a
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: BLOCO
+Cadeia de entrada:
+    1      1 Palavrachave_if  if
+    1      3 Abparentese      (
+    1      4 Identificador    a
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: IF
+Cadeia de entrada:
+    1      1 Palavrachave_if  if
+    1      3 Abparentese      (
+    1      4 Identificador    a
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: IDENTIFICACAO
+Cadeia de entrada:
+    1      4 Identificador    a
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: TERMO IDENTIFICADOR
+Cadeia de entrada:
+    1      4 Identificador    a
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: B
+Cadeia de entrada:
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: EXPRESSAO
+Cadeia de entrada:
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: A
+Cadeia de entrada:
+    1      6 Operador         ==
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: TERMO INTEIRO
+Cadeia de entrada:
+    1      9 Inteiro          0
+    1     10 Fcparentese      )
+    1     11 Abchave          {
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: BLOCO
+Cadeia de entrada:
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: RETORNO
+Cadeia de entrada:
+    2      5 Palavrachave_return  return
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: IDENTIFICACAO
+Cadeia de entrada:
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: TERMO INTEIRO
+Cadeia de entrada:
+    2     12 Inteiro          0
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: EXPRESSAO
+Cadeia de entrada:
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: A
+Cadeia de entrada:
+    2     13 Pontoevirgula    ;
+    3      1 Fcchave          }
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: BLOCO
+Cadeia de entrada:
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: SWITCH
+Cadeia de entrada:
+    4      1 Palavrachave_switch  switch
+    4      7 Abparentese      (
+    4      8 Identificador    olaaa
+    4     13 Fcparentese      )
+    4     14 Abchave          {
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: CASE
+Cadeia de entrada:
+    5      5 Palavrachave_case  case
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: IDENTIFICACAO
+Cadeia de entrada:
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: TERMO INTEIRO
+Cadeia de entrada:
+    5     10 Inteiro          1
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: EXPRESSAO
+Cadeia de entrada:
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: A
+Cadeia de entrada:
+    5     11 Doispontos       :
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: BLOCO
+Cadeia de entrada:
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: DECLARACAO
+Cadeia de entrada:
+    6      5 Tipodado         int
+    6      9 Identificador    a
+    6     10 Pontoevirgula    ;
+    7      5 Palavrachave_break  break
+    7     10 Pontoevirgula    ;
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: CASE
+Cadeia de entrada:
+    8      5 Palavrachave_default  default
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: IDENTIFICACAO
+Cadeia de entrada:
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: DEFAULT
+Cadeia de entrada:
+    8     12 Doispontos       :
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: BLOCO
+Cadeia de entrada:
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------
+Regra: DECLARACAO
+Cadeia de entrada:
+    9      5 Tipodado         float
+    9     11 Identificador    b
+    9     12 Pontoevirgula    ;
+   10      1 Fcchave          }
+-----------------------------------------------

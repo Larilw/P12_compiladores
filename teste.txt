@@ -1,9 +1,10 @@
-if(a == 0)
+if(a == 0){
     return 0;
 }
-for(;;){
-    int a
+switch(olaaa){
+    case 1:
+    int a;
+    break;
+    default:
+    float b;
 }
-int a
-return ;
-

@@ -27,9 +27,9 @@ public class Main {
                 TabelaSimbolos tabela = new TabelaSimbolos(i);
                 Lex l = new Lex(source, tabela);
                 l.printTokens();
-                //tabela.imprimir();
+                tabela.imprimir();
 
-                Parser p = new Parser();
+                Parser p = new Parser(arquivo);
                 p.criarRegras();
                 p.asd(tabela);
             } catch(FileNotFoundException e) {
